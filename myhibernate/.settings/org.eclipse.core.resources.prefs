@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//WebRoot/listEmployee.jsp=UTF-8
+encoding//src/com/jiyoutang/myhibernate/bean/Employee.java=UTF-8
+encoding//src/com/jiyoutang/myhibernate/servlet/EmployeeServlet.java=UTF-8
+encoding//src/com/jiyoutang/myhibernate/session/Pagination.java=UTF-8
+encoding/<project>=UTF-8

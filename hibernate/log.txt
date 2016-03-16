@@ -5872,3 +5872,179 @@ Hibernate: alter table tb_tag_post add index FKD39AC0D66AD936DF (post_id), add c
 Hibernate: alter table tb_tag_post add index FKD39AC0D611BCD1B5 (tag_id), add constraint FKD39AC0D611BCD1B5 foreign key (tag_id) references tb_tag (id)
 Hibernate: Executing import script: /import.sql
 Hibernate: schema export complete
+Hibernate: Running hbm2ddl schema export
+Hibernate: exporting generated schema to database
+Hibernate: schema export unsuccessful
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:946)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2941)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:868)
+	at com.mysql.jdbc.MysqlIO.secureAuth411(MysqlIO.java:3340)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1238)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2743)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1553)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:266)
+	at java.sql.DriverManager.getConnection(DriverManager.java:571)
+	at java.sql.DriverManager.getConnection(DriverManager.java:187)
+	at org.hibernate.connection.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:110)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:27)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.execute(SchemaExport.java:180)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:133)
+	at org.hibernate.impl.SessionFactoryImpl.<init>(SessionFactoryImpl.java:311)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1300)
+	at org.hibernate.cfg.AnnotationConfiguration.buildSessionFactory(AnnotationConfiguration.java:859)
+	at com.helloweenvsfei.hibernate.util.HibernateSessionFactory.<clinit>(HibernateSessionFactory.java:31)
+	at com.helloweenvsfei.hibernate.test.TestAnnotationedPersonEmail.main(TestAnnotationedPersonEmail.java:26)
+Hibernate: Running hbm2ddl schema export
+Hibernate: exporting generated schema to database
+Hibernate: schema export unsuccessful
+com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: Unknown database 'hibernate'
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:936)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2941)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:868)
+	at com.mysql.jdbc.MysqlIO.secureAuth411(MysqlIO.java:3340)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1238)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2743)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1553)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:266)
+	at java.sql.DriverManager.getConnection(DriverManager.java:571)
+	at java.sql.DriverManager.getConnection(DriverManager.java:187)
+	at org.hibernate.connection.DriverManagerConnectionProvider.getConnection(DriverManagerConnectionProvider.java:110)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:27)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.execute(SchemaExport.java:180)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:133)
+	at org.hibernate.impl.SessionFactoryImpl.<init>(SessionFactoryImpl.java:311)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1300)
+	at org.hibernate.cfg.AnnotationConfiguration.buildSessionFactory(AnnotationConfiguration.java:859)
+	at com.helloweenvsfei.hibernate.util.HibernateSessionFactory.<clinit>(HibernateSessionFactory.java:31)
+	at com.helloweenvsfei.hibernate.test.TestAnnotationedPersonEmail.main(TestAnnotationedPersonEmail.java:26)
+Hibernate: Running hbm2ddl schema export
+Hibernate: exporting generated schema to database
+Hibernate: alter table tb_article drop foreign key FKD46234254F53789F
+Hibernate: Unsuccessful: alter table tb_article drop foreign key FKD46234254F53789F
+Hibernate: Table 'hibernate.tb_article' doesn't exist
+Hibernate: alter table tb_cat drop foreign key FKCB83D68521985A28
+Hibernate: Unsuccessful: alter table tb_cat drop foreign key FKCB83D68521985A28
+Hibernate: Table 'hibernate.tb_cat' doesn't exist
+Hibernate: alter table tb_email drop foreign key FKFA09B28BC0DC927D
+Hibernate: Unsuccessful: alter table tb_email drop foreign key FKFA09B28BC0DC927D
+Hibernate: Table 'hibernate.tb_email' doesn't exist
+Hibernate: alter table tb_event drop foreign key FKFA0DD989F4C01835
+Hibernate: Unsuccessful: alter table tb_event drop foreign key FKFA0DD989F4C01835
+Hibernate: Table 'hibernate.tb_event' doesn't exist
+Hibernate: alter table tb_sailor drop foreign key FK5E6B0C85FD0C815F
+Hibernate: Unsuccessful: alter table tb_sailor drop foreign key FK5E6B0C85FD0C815F
+Hibernate: Table 'hibernate.tb_sailor' doesn't exist
+Hibernate: alter table tb_ship drop foreign key FKA4FE596D630A5D8F
+Hibernate: Unsuccessful: alter table tb_ship drop foreign key FKA4FE596D630A5D8F
+Hibernate: Table 'hibernate.tb_ship' doesn't exist
+Hibernate: alter table tb_student drop foreign key FK9007E96AEBB67B15
+Hibernate: Unsuccessful: alter table tb_student drop foreign key FK9007E96AEBB67B15
+Hibernate: Table 'hibernate.tb_student' doesn't exist
+Hibernate: alter table tb_tag_post drop foreign key FKD39AC0D66AD936DF
+Hibernate: Unsuccessful: alter table tb_tag_post drop foreign key FKD39AC0D66AD936DF
+Hibernate: Table 'hibernate.tb_tag_post' doesn't exist
+Hibernate: alter table tb_tag_post drop foreign key FKD39AC0D611BCD1B5
+Hibernate: Unsuccessful: alter table tb_tag_post drop foreign key FKD39AC0D611BCD1B5
+Hibernate: Table 'hibernate.tb_tag_post' doesn't exist
+Hibernate: drop table if exists tb_address
+Hibernate: drop table if exists tb_article
+Hibernate: drop table if exists tb_cat
+Hibernate: drop table if exists tb_class
+Hibernate: drop table if exists tb_column_bean
+Hibernate: drop table if exists tb_customer
+Hibernate: drop table if exists tb_email
+Hibernate: drop table if exists tb_event
+Hibernate: drop table if exists tb_person2
+Hibernate: drop table if exists tb_post
+Hibernate: drop table if exists tb_sailor
+Hibernate: drop table if exists tb_ship
+Hibernate: drop table if exists tb_student
+Hibernate: drop table if exists tb_tag
+Hibernate: drop table if exists tb_tag_post
+Hibernate: drop table if exists tb_type
+Hibernate: drop table if exists tb_version_bean
+Hibernate: create table tb_address (id integer not null, address varchar(255), telephone varchar(255), zip varchar(255), primary key (id))
+Hibernate: create table tb_article (id integer not null auto_increment, content longtext, name varchar(255), type_id integer, primary key (id))
+Hibernate: create table tb_cat (id integer not null auto_increment, createDate datetime, description varchar(255), name varchar(255), mother_id integer, primary key (id))
+Hibernate: create table tb_class (id integer not null auto_increment, name varchar(255), primary key (id))
+Hibernate: create table tb_column_bean (id integer not null auto_increment, name longtext, salary double precision, primary key (id))
+Hibernate: create table tb_customer (id integer not null auto_increment, name varchar(255), primary key (id))
+Hibernate: create table tb_email (id integer not null auto_increment, email varchar(255), person_id integer, primary key (id))
+Hibernate: create table tb_event (id integer not null auto_increment, createDate datetime, description varchar(255), cat_id integer, primary key (id))
+Hibernate: create table tb_person2 (id integer not null auto_increment, name varchar(255), primary key (id))
+Hibernate: create table tb_post (id integer not null auto_increment, content text, title varchar(255), primary key (id))
+Hibernate: create table tb_sailor (id integer not null auto_increment, name varchar(255), ship_id integer, primary key (id))
+Hibernate: create table tb_ship (id integer not null auto_increment, name varchar(255), captain_id integer unique, primary key (id))
+Hibernate: create table tb_student (id integer not null auto_increment, name varchar(255), sex varchar(255), class_id integer, primary key (id))
+Hibernate: create table tb_tag (id integer not null auto_increment, name varchar(255), primary key (id))
+Hibernate: create table tb_tag_post (post_id integer not null, tag_id integer not null, primary key (post_id, tag_id))
+Hibernate: create table tb_type (id integer not null auto_increment, name varchar(255) unique, primary key (id))
+Hibernate: create table tb_version_bean (id integer not null auto_increment, name varchar(255), version integer not null, primary key (id))
+Hibernate: alter table tb_article add index FKD46234254F53789F (type_id), add constraint FKD46234254F53789F foreign key (type_id) references tb_type (id)
+Hibernate: alter table tb_cat add index FKCB83D68521985A28 (mother_id), add constraint FKCB83D68521985A28 foreign key (mother_id) references tb_cat (id)
+Hibernate: alter table tb_email add index FKFA09B28BC0DC927D (person_id), add constraint FKFA09B28BC0DC927D foreign key (person_id) references tb_person2 (id)
+Hibernate: alter table tb_event add index FKFA0DD989F4C01835 (cat_id), add constraint FKFA0DD989F4C01835 foreign key (cat_id) references tb_cat (id)
+Hibernate: alter table tb_sailor add index FK5E6B0C85FD0C815F (ship_id), add constraint FK5E6B0C85FD0C815F foreign key (ship_id) references tb_ship (id)
+Hibernate: alter table tb_ship add index FKA4FE596D630A5D8F (captain_id), add constraint FKA4FE596D630A5D8F foreign key (captain_id) references tb_sailor (id)
+Hibernate: alter table tb_student add index FK9007E96AEBB67B15 (class_id), add constraint FK9007E96AEBB67B15 foreign key (class_id) references tb_class (id)
+Hibernate: alter table tb_tag_post add index FKD39AC0D66AD936DF (post_id), add constraint FKD39AC0D66AD936DF foreign key (post_id) references tb_post (id)
+Hibernate: alter table tb_tag_post add index FKD39AC0D611BCD1B5 (tag_id), add constraint FKD39AC0D611BCD1B5 foreign key (tag_id) references tb_tag (id)
+Hibernate: Executing import script: /import.sql
+Hibernate: schema export complete
+Hibernate: Running hbm2ddl schema export
+Hibernate: exporting generated schema to database
+Hibernate: alter table tb_article drop foreign key FKD46234254F53789F
+Hibernate: alter table tb_cat drop foreign key FKCB83D68521985A28
+Hibernate: alter table tb_email drop foreign key FKFA09B28BC0DC927D
+Hibernate: alter table tb_event drop foreign key FKFA0DD989F4C01835
+Hibernate: alter table tb_sailor drop foreign key FK5E6B0C85FD0C815F
+Hibernate: alter table tb_ship drop foreign key FKA4FE596D630A5D8F
+Hibernate: alter table tb_student drop foreign key FK9007E96AEBB67B15
+Hibernate: alter table tb_tag_post drop foreign key FKD39AC0D66AD936DF
+Hibernate: alter table tb_tag_post drop foreign key FKD39AC0D611BCD1B5
+Hibernate: drop table if exists tb_address
+Hibernate: drop table if exists tb_article
+Hibernate: drop table if exists tb_cat
+Hibernate: drop table if exists tb_class
+Hibernate: drop table if exists tb_column_bean
+Hibernate: drop table if exists tb_customer
+Hibernate: drop table if exists tb_email
+Hibernate: drop table if exists tb_event
+Hibernate: drop table if exists tb_person2
+Hibernate: drop table if exists tb_post
+Hibernate: drop table if exists tb_sailor
+Hibernate: drop table if exists tb_ship
+Hibernate: drop table if exists tb_student
+Hibernate: drop table if exists tb_tag
+Hibernate: drop table if exists tb_tag_post
+Hibernate: drop table if exists tb_type
+Hibernate: drop table if exists tb_version_bean
+Hibernate: create table tb_address (id integer not null, address varchar(255), telephone varchar(255), zip varchar(255), primary key (id))
+Hibernate: create table tb_article (id integer not null auto_increment, content longtext, name varchar(255), type_id integer, primary key (id))
+Hibernate: create table tb_cat (id integer not null auto_increment, createDate datetime, description varchar(255), name varchar(255), mother_id integer, primary key (id))
+Hibernate: create table tb_class (id integer not null auto_increment, name varchar(255), primary key (id))
+Hibernate: create table tb_column_bean (id integer not null auto_increment, name longtext, salary double precision, primary key (id))
+Hibernate: create table tb_customer (id integer not null auto_increment, name varchar(255), primary key (id))
+Hibernate: create table tb_email (id integer not null auto_increment, email varchar(255), person_id integer, primary key (id))
+Hibernate: create table tb_event (id integer not null auto_increment, createDate datetime, description varchar(255), cat_id integer, primary key (id))
+Hibernate: create table tb_person2 (id integer not null auto_increment, name varchar(255), primary key (id))
+Hibernate: create table tb_post (id integer not null auto_increment, content text, title varchar(255), primary key (id))
+Hibernate: create table tb_sailor (id integer not null auto_increment, name varchar(255), ship_id integer, primary key (id))
+Hibernate: create table tb_ship (id integer not null auto_increment, name varchar(255), captain_id integer unique, primary key (id))
+Hibernate: create table tb_student (id integer not null auto_increment, name varchar(255), sex varchar(255), class_id integer, primary key (id))
+Hibernate: create table tb_tag (id integer not null auto_increment, name varchar(255), primary key (id))
+Hibernate: create table tb_tag_post (post_id integer not null, tag_id integer not null, primary key (post_id, tag_id))
+Hibernate: create table tb_type (id integer not null auto_increment, name varchar(255) unique, primary key (id))
+Hibernate: create table tb_version_bean (id integer not null auto_increment, name varchar(255), version integer not null, primary key (id))
+Hibernate: alter table tb_article add index FKD46234254F53789F (type_id), add constraint FKD46234254F53789F foreign key (type_id) references tb_type (id)
+Hibernate: alter table tb_cat add index FKCB83D68521985A28 (mother_id), add constraint FKCB83D68521985A28 foreign key (mother_id) references tb_cat (id)
+Hibernate: alter table tb_email add index FKFA09B28BC0DC927D (person_id), add constraint FKFA09B28BC0DC927D foreign key (person_id) references tb_person2 (id)
+Hibernate: alter table tb_event add index FKFA0DD989F4C01835 (cat_id), add constraint FKFA0DD989F4C01835 foreign key (cat_id) references tb_cat (id)
+Hibernate: alter table tb_sailor add index FK5E6B0C85FD0C815F (ship_id), add constraint FK5E6B0C85FD0C815F foreign key (ship_id) references tb_ship (id)
+Hibernate: alter table tb_ship add index FKA4FE596D630A5D8F (captain_id), add constraint FKA4FE596D630A5D8F foreign key (captain_id) references tb_sailor (id)
+Hibernate: alter table tb_student add index FK9007E96AEBB67B15 (class_id), add constraint FK9007E96AEBB67B15 foreign key (class_id) references tb_class (id)
+Hibernate: alter table tb_tag_post add index FKD39AC0D66AD936DF (post_id), add constraint FKD39AC0D66AD936DF foreign key (post_id) references tb_post (id)
+Hibernate: alter table tb_tag_post add index FKD39AC0D611BCD1B5 (tag_id), add constraint FKD39AC0D611BCD1B5 foreign key (tag_id) references tb_tag (id)
+Hibernate: Executing import script: /import.sql
+Hibernate: schema export complete

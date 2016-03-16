@@ -43,7 +43,7 @@ public class TestAnnotationedPersonEmail {
 		}
 
 		// 删除 Person 对象，会自动级联删除属于它的 Email 数据库记录
-		session.delete(person);
+		//session.delete(person);
 
 		session.getTransaction().commit();
 		session.close();

@@ -18,6 +18,8 @@
     	
 		<mapping class="com.jiyoutang.myhibernate.bean.Cat" />
 		<mapping class="com.jiyoutang.myhibernate.bean.Event" />
+    	<mapping class="com.jiyoutang.myhibernate.bean.Employee"/>
+    	<mapping class="com.jiyoutang.myhibernate.bean.Department"/>
     </session-factory>
 
 </hibernate-configuration>
