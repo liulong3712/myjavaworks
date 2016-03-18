@@ -3,8 +3,11 @@ package com.jiyoutang.spring.dao;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 public class DaoRun {
 
@@ -12,6 +15,8 @@ public class DaoRun {
 
 		XmlBeanFactory factory = new XmlBeanFactory(new ClassPathResource(
 				"applicationContext.xml"));
+//		Resource res = new ClassPathResource("applicationContext.xml");
+//		BeanFactory factory = new XmlBeanFactory(res);
 
 		IPersonDao personDao = (IPersonDao) factory
 				.getBean("personDao");

@@ -88,7 +88,7 @@ public class PersonDaoImpl extends JdbcDaoSupport implements IPersonDao {
 
 		addPerson(person);
 
-		getPersonName(Integer.MAX_VALUE);
+		//getPersonName(Integer.MAX_VALUE);
 	}
 
 }
