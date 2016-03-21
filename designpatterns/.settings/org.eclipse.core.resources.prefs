@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/designpatterns/adapter/Adapter.java=GBK
+encoding//src/designpatterns/birdge=UTF-8
+encoding//src/designpatterns/builder=UTF-8
 encoding//src/designpatterns/chainresponsibility/ChainResponsibility.java=GBK
 encoding//src/designpatterns/command/Command.java=GBK
 encoding//src/designpatterns/composite/Composite.java=GBK
@@ -10,7 +12,9 @@ encoding//src/designpatterns/factory/FactoryMethod.java=GBK
 encoding//src/designpatterns/factory/Simplefactory.java=GBK
 encoding//src/designpatterns/flyweight/Flyweight.java=GBK
 encoding//src/designpatterns/mediator/Mediator.java=GBK
+encoding//src/designpatterns/mement=UTF-8
 encoding//src/designpatterns/observer/Observer.java=GBK
+encoding//src/designpatterns/prototype=UTF-8
 encoding//src/designpatterns/proxy=UTF-8
 encoding//src/designpatterns/proxy/Proxy.java=GBK
 encoding//src/designpatterns/singleton/Singleton.java=GBK
