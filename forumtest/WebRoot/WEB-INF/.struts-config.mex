@@ -3,7 +3,6 @@
   <StrutsActivity path="/person.do" location="50,50" dimension="303,104" />
   <StrutsActivity path="/form/person/listPerson.jsp" location="650,50" dimension="192,53" />
   <StrutsActivity path="/form/person/addPerson.jsp" location="950,50" dimension="199,53" />
-  <StrutsActivity path="/strutsTest.do" />
   <StrutsTransition id="/form/person/listPerson.jsp,null,/person.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="746,103" />

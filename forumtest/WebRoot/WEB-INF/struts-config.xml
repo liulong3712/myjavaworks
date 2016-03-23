@@ -5,7 +5,11 @@
 	<form-beans>
 		<form-bean name="personForm" type="com.llw1314.forum.struts.form.PersonForm"></form-bean>
 	</form-beans>
-	<global-exceptions />
+	<global-exceptions>
+		<exception key="login" type="java.lang.Exception"
+			handler="com.llw1314.forum.struts.exception.ForumExceptionHandler">
+		</exception>
+	</global-exceptions>
 	<global-forwards />
 	<action-mappings>
 		<action attribute="personForm" 
@@ -13,16 +17,13 @@
 			name="personForm" 
 			path="/person" 
 			scope="request" 
-			parameter="actorn"
+			parameter="action"
 			type="com.llw1314.forum.struts.action.PersonAction">
 			<forward name="add" path="/form/person/addPerson.jsp"></forward>
 			<forward name="list" path="/form/person/listPerson.jsp"></forward>
 		</action>
-    <action
-      path="/strutsTest"
-      type="com.llw1314.struts.action.StrutsTestAction"
-      cancellable="true" />
 	</action-mappings>
+	<controller processorClass="org.springframework.web.struts.DelegatingRequestProcessor"/>
 	<message-resources parameter="com.llw1314.struts.ApplicationResources" />
 </struts-config>
 
