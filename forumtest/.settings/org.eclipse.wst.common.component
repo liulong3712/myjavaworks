@@ -2,6 +2,7 @@
     <wb-module deploy-name="forumtest">
         <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="context-root" value="forumtest"/>
         <property name="java-output-path" value="/forumtest/WebRoot/WEB-INF/classes"/>
         <property name="me-struts-base-pkg" value="com.llw1314.struts"/>

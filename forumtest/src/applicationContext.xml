@@ -5,7 +5,7 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
 
-
+	<!-- 数据源 -->
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="url"
@@ -15,6 +15,8 @@
 		<property name="username" value="root"></property>
 		<property name="password" value=""></property>
 	</bean>
+	
+	<!-- hibernate的SessionFactory -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
 		destroy-method="destroy">
@@ -39,30 +41,51 @@
 			</props>
 		</property>
 	</bean>
+	
+	<!-- dao层 -->
+	<bean id="dao" class="com.llw1314.forum.dao.impl.DaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- hibernate事务管理器 -->
 	<bean id="hibernateTransactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<bean id="dao" class="com.llw1314.forum.dao.impl.DaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
+	<!-- hibernate事务管理规则 -->
 	<bean id="hibernateTransactionAttributeSource"
 		class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
-		<property name="properties">
+		<property name="properties"><!-- 事务管理的方法名 -->
 			<props>
-				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop><!-- 所有方法都加上事务 -->
 			</props>
 		</property>
 	</bean>
 	
+	<!-- 用户事务工厂代理类 -->
 	<bean id="personService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager"
+			ref="hibernateTransactionManager"><!-- 采用事务管理 -->
+		</property>
+		<property name="target">
+			<bean
+				class="com.llw1314.forum.service.impl.PersonServiceImpl">
+				<property name="dao" ref="dao"></property><!-- 设置dao依赖 -->
+			</bean>
+		</property>
+		<property name="transactionAttributeSource"
+			ref="hibernateTransactionAttributeSource"><!-- 设置事务管理规则 -->
+		</property>
+	</bean>
+	<!-- 类别事务工厂代理类 -->
+	<bean id="categoryService"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 		<property name="transactionManager"
 			ref="hibernateTransactionManager">
 		</property>
 		<property name="target">
 			<bean
-				class="com.llw1314.forum.service.impl.PersonServiceImpl">
+				class="com.llw1314.forum.service.impl.CategoryServiceImpl">
 				<property name="dao" ref="dao"></property>
 			</bean>
 		</property>
@@ -70,9 +93,58 @@
 			ref="hibernateTransactionAttributeSource">
 		</property>
 	</bean>
+	<bean id="boardService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager"
+			ref="hibernateTransactionManager">
+		</property>
+		<property name="target">
+			<bean
+				class="com.llw1314.forum.service.impl.BoardServiceImpl">
+				<property name="dao" ref="dao"></property>
+			</bean>
+		</property>
+		<property name="transactionAttributeSource"
+			ref="hibernateTransactionAttributeSource">
+		</property>
+	</bean>
+
+	<bean id="threadService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager"
+			ref="hibernateTransactionManager">
+		</property>
+		<property name="target">
+			<bean
+				class="com.llw1314.forum.service.impl.ThreadServiceImpl">
+				<property name="dao" ref="dao"></property>
+			</bean>
+		</property>
+		<property name="transactionAttributeSource"
+			ref="hibernateTransactionAttributeSource">
+		</property>
+	</bean>
+
+	<bean id="replyService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager"
+			ref="hibernateTransactionManager">
+		</property>
+		<property name="target">
+			<bean
+				class="com.llw1314.forum.service.impl.ReplyServiceImpl">
+				<property name="dao" ref="dao"></property>
+			</bean>
+		</property>
+		<property name="transactionAttributeSource"
+			ref="hibernateTransactionAttributeSource">
+		</property>
+	</bean>
+	<!-- 登录拦截器 -->
 	<bean id="loginInterceptor"
 		class="com.llw1314.forum.struts.interceptor.LoginInterceptor">
 	</bean>
+	<!-- person代理工厂 -->
 	<bean name="/person"
 		class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="interceptorNames">
@@ -85,6 +157,73 @@
 			<bean
 				class="com.llw1314.forum.struts.action.PersonAction">
 				<property name="personService" ref="personService"></property>
+			</bean>
+		</property>
+	</bean>
+	<bean name="/category"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interceptorNames">
+			<list>
+				<value>loginInterceptor</value>
+			</list>
+		</property>
+		<property name="target">
+			<bean
+				class="com.llw1314.forum.struts.action.CategoryAction">
+				<property name="categoryService" ref="categoryService"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean name="/board"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interceptorNames">
+			<list>
+				<value>loginInterceptor</value>
+			</list>
+		</property>
+		<property name="target">
+			<bean
+				class="com.llw1314.forum.struts.action.BoardAction">
+				<property name="boardService" ref="boardService" />
+				<property name="categoryService" ref="categoryService" />
+				<property name="threadService" ref="threadService"></property>
+				<property name="personService" ref="personService"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean name="/thread"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interceptorNames">
+			<list>
+				<value>loginInterceptor</value>
+			</list>
+		</property>
+		<property name="target">
+			<bean
+				class="com.llw1314.forum.struts.action.ThreadAction">
+				<property name="personService" ref="personService" />
+				<property name="boardService" ref="boardService" />
+				<property name="threadService" ref="threadService" />
+				<property name="replyService" ref="replyService"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean name="/reply"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interceptorNames">
+			<list>
+				<value>loginInterceptor</value>
+			</list>
+		</property>
+		<property name="target">
+			<bean
+				class="com.llw1314.forum.struts.action.ReplyAction">
+				<property name="personService" ref="personService" />
+				<property name="threadService" ref="threadService" />
+				<property name="replyService" ref="replyService" />
 			</bean>
 		</property>
 	</bean>
