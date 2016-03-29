@@ -61,18 +61,54 @@ class Bus extends AbstractCar {
 	}
 	
 }
+//定义人抽象类
+abstract class AbstractPeople{
+	AbstractRoad myRoad;
+	public abstract void Run();
+	public AbstractRoad getOneRoad() {
+		return myRoad;
+	}
+	public void setOneRoad(AbstractRoad oneLoad) {
+		this.myRoad = oneLoad;
+	}
+}
+//定义具体的人wangwu
+class Wangwu extends AbstractPeople {
+
+	@Override
+	public void Run() {
+		System.out.print("王五驾驶");
+		myRoad.Run();	
+	}
+}
+//定义具体的人zhangsan
+class Zhangsan extends AbstractPeople {
+
+	@Override
+	public void Run() {
+		System.out.print("张三驾驶");
+		myRoad.Run();	
+	}
+}
 public class Birdge {
 	public static void main(String[] args) {
+		AbstractPeople wangwu = new Wangwu();
+		AbstractPeople zhangsan = new Zhangsan();
 		AbstractRoad road1 = new SpeedWay();
 		road1.setOneCar(new Car());
-		road1.Run();
-		road1.setOneCar(new Bus());
-		road1.Run();
+//		road1.Run();
+//		road1.setOneCar(new Bus());
+//		road1.Run();
 		
 		AbstractRoad road2 = new Street();
 		road2.setOneCar(new Bus());
-		road2.Run();
-		road2.setOneCar(new Car());
-		road2.Run();
+//		road2.Run();
+//		road2.setOneCar(new Car());
+//		road2.Run();
+		
+		wangwu.setOneRoad(road1);
+		wangwu.Run();
+		wangwu.setOneRoad(road2);
+		wangwu.Run();
 	}
 }

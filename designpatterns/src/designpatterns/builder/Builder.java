@@ -28,7 +28,7 @@ interface InterBuilder {
 	public void BuildFeet();
 	public BuildPerson GetResult();
 }
-//Director类
+//Director类，相当于是总工程师或者总导演，具体的创建过程都由他来指导完成
 class Director {
 	void Construct(InterBuilder myBuilder) {
 		myBuilder.BuildHand();
